@@ -1,0 +1,267 @@
+2026-07-13 16:42:05.556 [main] INFO  org.example.Main - Application started
+2026-07-13 16:42:06.068 [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2026-07-13 16:42:32.871 [main] ERROR org.example.repository.UserRepository - Transaction rollback failed
+java.lang.IllegalStateException: org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl@48d293ee is closed
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.errorIfClosed(AbstractLogicalConnectionImplementor.java:37) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:137) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getConnectionForTransactionManagement(LogicalConnectionManagedImpl.java:276) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.rollback(AbstractLogicalConnectionImplementor.java:121) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.rollback(JdbcResourceLocalTransactionCoordinatorImpl.java:304) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.rollback(TransactionImpl.java:142) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.example.config.HibernateExecutor.executeInTransactionWithResult(HibernateExecutor.java:57) [classes/:?]
+	at org.example.repository.UserRepository.saveUser(UserRepository.java:25) [classes/:?]
+	at org.example.operations.CreateUser.execute(CreateUser.java:25) [classes/:?]
+	at org.example.Main.init(Main.java:43) [classes/:?]
+	at org.example.Main.main(Main.java:61) [classes/:?]
+2026-07-13 16:42:32.887 [main] ERROR org.example.repository.UserRepository - The transaction operation failed
+org.hibernate.MappingException: Unknown entity: org.example.model.User
+	at org.hibernate.metamodel.internal.MetamodelImpl.entityPersister(MetamodelImpl.java:715) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.getEntityPersister(SessionImpl.java:1653) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:113) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:194) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:179) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:75) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:672) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:665) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:660) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.example.repository.UserRepository.lambda$saveUser$0(UserRepository.java:26) ~[classes/:?]
+	at org.example.config.HibernateExecutor.executeInTransactionWithResult(HibernateExecutor.java:50) [classes/:?]
+	at org.example.repository.UserRepository.saveUser(UserRepository.java:25) [classes/:?]
+	at org.example.operations.CreateUser.execute(CreateUser.java:25) [classes/:?]
+	at org.example.Main.init(Main.java:43) [classes/:?]
+	at org.example.Main.main(Main.java:61) [classes/:?]
+2026-07-13 16:42:32.887 [main] ERROR org.example.Main - Application error
+javax.persistence.PersistenceException: The transaction operation failed
+	at org.example.config.HibernateExecutor.executeInTransactionWithResult(HibernateExecutor.java:63) ~[classes/:?]
+	at org.example.repository.UserRepository.saveUser(UserRepository.java:25) ~[classes/:?]
+	at org.example.operations.CreateUser.execute(CreateUser.java:25) ~[classes/:?]
+	at org.example.Main.init(Main.java:43) ~[classes/:?]
+	at org.example.Main.main(Main.java:61) [classes/:?]
+Caused by: org.hibernate.MappingException: Unknown entity: org.example.model.User
+	at org.hibernate.metamodel.internal.MetamodelImpl.entityPersister(MetamodelImpl.java:715) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.getEntityPersister(SessionImpl.java:1653) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:113) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:194) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:179) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:75) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:672) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:665) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:660) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.example.repository.UserRepository.lambda$saveUser$0(UserRepository.java:26) ~[classes/:?]
+	at org.example.config.HibernateExecutor.executeInTransactionWithResult(HibernateExecutor.java:50) ~[classes/:?]
+	... 4 more
+2026-07-13 16:42:32.890 [main] INFO  org.example.Main - Application stopped
+2026-07-13 16:44:22.950 [main] INFO  org.example.Main - Application started
+2026-07-13 16:44:23.434 [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2026-07-13 16:44:37.158 [main] ERROR org.example.repository.UserRepository - Transaction rollback failed
+java.lang.IllegalStateException: org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl@146dcfe6 is closed
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.errorIfClosed(AbstractLogicalConnectionImplementor.java:37) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:137) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getConnectionForTransactionManagement(LogicalConnectionManagedImpl.java:276) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.rollback(AbstractLogicalConnectionImplementor.java:121) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.rollback(JdbcResourceLocalTransactionCoordinatorImpl.java:304) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.rollback(TransactionImpl.java:142) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.example.config.HibernateExecutor.executeInTransactionWithResult(HibernateExecutor.java:57) [classes/:?]
+	at org.example.repository.UserRepository.saveUser(UserRepository.java:25) [classes/:?]
+	at org.example.operations.CreateUser.execute(CreateUser.java:25) [classes/:?]
+	at org.example.Main.init(Main.java:43) [classes/:?]
+	at org.example.Main.main(Main.java:61) [classes/:?]
+2026-07-13 16:44:37.163 [main] ERROR org.example.repository.UserRepository - The transaction operation failed
+org.hibernate.MappingException: Unknown entity: org.example.model.User
+	at org.hibernate.metamodel.internal.MetamodelImpl.entityPersister(MetamodelImpl.java:715) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.getEntityPersister(SessionImpl.java:1653) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:113) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:194) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:179) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:75) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:672) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:665) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:660) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.example.repository.UserRepository.lambda$saveUser$0(UserRepository.java:26) ~[classes/:?]
+	at org.example.config.HibernateExecutor.executeInTransactionWithResult(HibernateExecutor.java:50) [classes/:?]
+	at org.example.repository.UserRepository.saveUser(UserRepository.java:25) [classes/:?]
+	at org.example.operations.CreateUser.execute(CreateUser.java:25) [classes/:?]
+	at org.example.Main.init(Main.java:43) [classes/:?]
+	at org.example.Main.main(Main.java:61) [classes/:?]
+2026-07-13 16:44:37.164 [main] ERROR org.example.Main - Application error
+javax.persistence.PersistenceException: The transaction operation failed
+	at org.example.config.HibernateExecutor.executeInTransactionWithResult(HibernateExecutor.java:63) ~[classes/:?]
+	at org.example.repository.UserRepository.saveUser(UserRepository.java:25) ~[classes/:?]
+	at org.example.operations.CreateUser.execute(CreateUser.java:25) ~[classes/:?]
+	at org.example.Main.init(Main.java:43) ~[classes/:?]
+	at org.example.Main.main(Main.java:61) [classes/:?]
+Caused by: org.hibernate.MappingException: Unknown entity: org.example.model.User
+	at org.hibernate.metamodel.internal.MetamodelImpl.entityPersister(MetamodelImpl.java:715) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.getEntityPersister(SessionImpl.java:1653) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:113) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:194) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:179) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:75) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:672) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:665) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:660) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.example.repository.UserRepository.lambda$saveUser$0(UserRepository.java:26) ~[classes/:?]
+	at org.example.config.HibernateExecutor.executeInTransactionWithResult(HibernateExecutor.java:50) ~[classes/:?]
+	... 4 more
+2026-07-13 16:44:37.166 [main] INFO  org.example.Main - Application stopped
+2026-07-13 16:47:21.313 [main] INFO  org.example.Main - Application started
+2026-07-13 16:47:21.798 [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2026-07-13 16:47:44.278 [main] ERROR org.example.repository.UserRepository - Transaction rollback failed
+java.lang.IllegalStateException: org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl@48528634 is closed
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.errorIfClosed(AbstractLogicalConnectionImplementor.java:37) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:137) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getConnectionForTransactionManagement(LogicalConnectionManagedImpl.java:276) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.rollback(AbstractLogicalConnectionImplementor.java:121) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.rollback(JdbcResourceLocalTransactionCoordinatorImpl.java:304) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.rollback(TransactionImpl.java:142) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.example.config.HibernateExecutor.executeInTransactionWithResult(HibernateExecutor.java:57) [classes/:?]
+	at org.example.repository.UserRepository.saveUser(UserRepository.java:25) [classes/:?]
+	at org.example.operations.CreateUser.execute(CreateUser.java:25) [classes/:?]
+	at org.example.Main.init(Main.java:43) [classes/:?]
+	at org.example.Main.main(Main.java:61) [classes/:?]
+2026-07-13 16:47:44.283 [main] ERROR org.example.repository.UserRepository - The transaction operation failed
+org.hibernate.MappingException: Unknown entity: org.example.model.User
+	at org.hibernate.metamodel.internal.MetamodelImpl.entityPersister(MetamodelImpl.java:715) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.getEntityPersister(SessionImpl.java:1653) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:113) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:194) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:179) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:75) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:672) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:665) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:660) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.example.repository.UserRepository.lambda$saveUser$0(UserRepository.java:26) ~[classes/:?]
+	at org.example.config.HibernateExecutor.executeInTransactionWithResult(HibernateExecutor.java:50) [classes/:?]
+	at org.example.repository.UserRepository.saveUser(UserRepository.java:25) [classes/:?]
+	at org.example.operations.CreateUser.execute(CreateUser.java:25) [classes/:?]
+	at org.example.Main.init(Main.java:43) [classes/:?]
+	at org.example.Main.main(Main.java:61) [classes/:?]
+2026-07-13 16:47:44.284 [main] ERROR org.example.Main - Application error
+javax.persistence.PersistenceException: The transaction operation failed
+	at org.example.config.HibernateExecutor.executeInTransactionWithResult(HibernateExecutor.java:63) ~[classes/:?]
+	at org.example.repository.UserRepository.saveUser(UserRepository.java:25) ~[classes/:?]
+	at org.example.operations.CreateUser.execute(CreateUser.java:25) ~[classes/:?]
+	at org.example.Main.init(Main.java:43) ~[classes/:?]
+	at org.example.Main.main(Main.java:61) [classes/:?]
+Caused by: org.hibernate.MappingException: Unknown entity: org.example.model.User
+	at org.hibernate.metamodel.internal.MetamodelImpl.entityPersister(MetamodelImpl.java:715) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.getEntityPersister(SessionImpl.java:1653) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:113) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:194) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:179) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:75) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:672) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:665) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:660) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.example.repository.UserRepository.lambda$saveUser$0(UserRepository.java:26) ~[classes/:?]
+	at org.example.config.HibernateExecutor.executeInTransactionWithResult(HibernateExecutor.java:50) ~[classes/:?]
+	... 4 more
+2026-07-13 16:47:44.287 [main] INFO  org.example.Main - Application stopped
+2026-07-13 16:49:59.986 [main] INFO  org.example.Main - Application started
+2026-07-13 16:50:00.485 [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2026-07-13 16:50:07.810 [main] ERROR org.example.repository.UserRepository - Transaction rollback failed
+java.lang.IllegalStateException: org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl@48528634 is closed
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.errorIfClosed(AbstractLogicalConnectionImplementor.java:37) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:137) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getConnectionForTransactionManagement(LogicalConnectionManagedImpl.java:276) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.rollback(AbstractLogicalConnectionImplementor.java:121) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.rollback(JdbcResourceLocalTransactionCoordinatorImpl.java:304) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.rollback(TransactionImpl.java:142) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.example.config.HibernateExecutor.executeInTransactionWithResult(HibernateExecutor.java:57) [classes/:?]
+	at org.example.repository.UserRepository.saveUser(UserRepository.java:25) [classes/:?]
+	at org.example.operations.CreateUser.execute(CreateUser.java:25) [classes/:?]
+	at org.example.Main.init(Main.java:43) [classes/:?]
+	at org.example.Main.main(Main.java:61) [classes/:?]
+2026-07-13 16:50:07.815 [main] ERROR org.example.repository.UserRepository - The transaction operation failed
+org.hibernate.MappingException: Unknown entity: org.example.model.User
+	at org.hibernate.metamodel.internal.MetamodelImpl.entityPersister(MetamodelImpl.java:715) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.getEntityPersister(SessionImpl.java:1653) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:113) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:194) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:179) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:75) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:672) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:665) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:660) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.example.repository.UserRepository.lambda$saveUser$0(UserRepository.java:26) ~[classes/:?]
+	at org.example.config.HibernateExecutor.executeInTransactionWithResult(HibernateExecutor.java:50) [classes/:?]
+	at org.example.repository.UserRepository.saveUser(UserRepository.java:25) [classes/:?]
+	at org.example.operations.CreateUser.execute(CreateUser.java:25) [classes/:?]
+	at org.example.Main.init(Main.java:43) [classes/:?]
+	at org.example.Main.main(Main.java:61) [classes/:?]
+2026-07-13 16:50:07.815 [main] ERROR org.example.Main - Application error
+javax.persistence.PersistenceException: The transaction operation failed
+	at org.example.config.HibernateExecutor.executeInTransactionWithResult(HibernateExecutor.java:63) ~[classes/:?]
+	at org.example.repository.UserRepository.saveUser(UserRepository.java:25) ~[classes/:?]
+	at org.example.operations.CreateUser.execute(CreateUser.java:25) ~[classes/:?]
+	at org.example.Main.init(Main.java:43) ~[classes/:?]
+	at org.example.Main.main(Main.java:61) [classes/:?]
+Caused by: org.hibernate.MappingException: Unknown entity: org.example.model.User
+	at org.hibernate.metamodel.internal.MetamodelImpl.entityPersister(MetamodelImpl.java:715) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.getEntityPersister(SessionImpl.java:1653) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:113) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:194) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:179) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:75) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:672) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:665) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionImpl.save(SessionImpl.java:660) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.example.repository.UserRepository.lambda$saveUser$0(UserRepository.java:26) ~[classes/:?]
+	at org.example.config.HibernateExecutor.executeInTransactionWithResult(HibernateExecutor.java:50) ~[classes/:?]
+	... 4 more
+2026-07-13 16:50:07.818 [main] INFO  org.example.Main - Application stopped
+2026-07-13 16:51:05.850 [main] INFO  org.example.Main - Application started
+2026-07-13 16:51:06.320 [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2026-07-13 16:51:12.616 [main] INFO  org.example.repository.UserRepository - User saved: User{id=null, name='we', email='we', age='2', createAt=null}
+2026-07-13 16:51:43.507 [main] INFO  org.example.repository.UserRepository - Error search user by id: 0
+2026-07-13 16:51:48.404 [main] INFO  org.example.repository.UserRepository - User found: User{id=1, name='we', email='we', age='2', createAt=2026-07-13T16:51:12.578498}
+2026-07-13 16:52:07.435 [main] INFO  org.example.repository.UserRepository - User updated: User{id=1, name='we', email='we', age='21', createAt=2026-07-13T16:51:12.578498}
+2026-07-13 16:52:27.011 [main] INFO  org.example.repository.UserRepository - User found: User{id=1, name='we', email='we', age='21', createAt=2026-07-13T16:51:12.578498}
+2026-07-13 16:52:41.838 [main] INFO  org.example.repository.UserRepository - User updated: User{id=1, name='Ada', email='ada@gmail.com', age='21', createAt=2026-07-13T16:51:12.578498}
+2026-07-13 16:53:32.731 [main] INFO  org.example.repository.UserRepository - 1 users found
+2026-07-13 16:54:01.523 [main] INFO  org.example.Main - Application stopped
+2026-07-13 16:55:21.055 [main] INFO  org.example.Main - Application started
+2026-07-13 16:55:21.553 [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2026-07-13 16:55:26.908 [main] INFO  org.example.repository.UserRepository - 1 users found
+2026-07-13 16:56:07.906 [main] INFO  org.example.Main - Application started
+2026-07-13 16:56:08.377 [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2026-07-13 16:56:20.797 [main] INFO  org.example.Main - Application started
+2026-07-13 16:56:21.246 [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2026-07-13 16:56:27.518 [main] INFO  org.example.repository.UserRepository - 1 users found
+2026-07-13 16:56:43.144 [main] INFO  org.example.repository.UserRepository - User saved: User{id=null, name='qw', email='qw', age='1', createAt=null}
+2026-07-13 16:56:53.947 [main] INFO  org.example.repository.UserRepository - User found: User{id=2, name='qw', email='qw', age='1', createAt=2026-07-13T16:56:43.113501}
+2026-07-13 16:56:53.969 [main] INFO  org.example.repository.UserRepository - User deleted: User{id=2, name='qw', email='qw', age='1', createAt=2026-07-13T16:56:43.113501}
+2026-07-13 16:57:04.450 [main] INFO  org.example.repository.UserRepository - User found: User{id=1, name='Ada', email='ada@gmail.com', age='21', createAt=2026-07-13T16:51:12.578498}
+2026-07-13 16:57:20.761 [main] INFO  org.example.Main - Application started
+2026-07-13 16:57:21.276 [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2026-07-13 16:57:35.228 [main] INFO  org.example.Main - Application started
+2026-07-13 16:57:35.720 [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2026-07-13 16:58:01.754 [main] INFO  org.example.Main - Application started
+2026-07-13 16:58:02.267 [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2026-07-13 16:58:08.812 [main] INFO  org.example.repository.UserRepository - User saved: User{id=null, name='qw', email='qw', age='2', createAt=null}
+2026-07-13 16:58:16.245 [main] INFO  org.example.repository.UserRepository - User found: User{id=3, name='qw', email='qw', age='2', createAt=2026-07-13T16:58:08.773040}
+2026-07-13 16:58:16.266 [main] INFO  org.example.repository.UserRepository - User deleted: User{id=3, name='qw', email='qw', age='2', createAt=2026-07-13T16:58:08.773040}
