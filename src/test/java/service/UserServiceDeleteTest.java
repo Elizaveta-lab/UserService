@@ -24,7 +24,7 @@ public class UserServiceDeleteTest {
 
     @Test
     void deleteUser_shouldReturnTrue_whenUserExistsAndDeleted(){
-        Long userId = 1L;
+        Long userId = 3L;
         User user = new User();
         user.setName("Eva");
         user.setEmail("eva@gmail.com");
