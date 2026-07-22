@@ -104,6 +104,7 @@ private UserRepository repository;
 
     @Test
     public void testDeleteUser() {
+
         User user = new User();
         user.setName("Hanna");
         user.setEmail("hanna@gmail.com");
