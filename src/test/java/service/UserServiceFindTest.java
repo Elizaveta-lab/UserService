@@ -25,9 +25,9 @@ public class UserServiceFindTest {
     void findUserById_shouldReturnUser_whenExists() {
         Long userId = 1L;
         User user = new User();
-        user.setName("Eva");
-        user.setEmail("eva@gmail.com");
-        user.setAge(String.valueOf(22));
+        user.setName("Ada");
+        user.setEmail("ada@gmail.com");
+        user.setAge(String.valueOf(21));
 
         when(repository.findUserById(userId)).thenReturn(user);
 
